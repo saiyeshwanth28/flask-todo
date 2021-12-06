@@ -38,6 +38,8 @@ def update(todo_id):
     db.session.commit()
     return redirect(url_for("index"))
 
+
+"""Funcytionality to edit the title of a todo"""
 @app.route("/edit/<int:todo_id>",methods=["GET","POST"])
 def edit(todo_id):
     todo = Todo.query.filter_by(id=todo_id).first()
@@ -47,8 +49,6 @@ def edit(todo_id):
         return redirect(url_for("index"))
     else:
         return render_template("edit.html", todo=todo)
-
-
 
 
 """Functionality to delete the todo from the list"""
